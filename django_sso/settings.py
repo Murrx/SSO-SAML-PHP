@@ -198,3 +198,27 @@ SAML_CONFIG = {
   'valid_for': 24,  # how long is our metadata valid
   }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename' : 'django_sso.log',
+        },
+    },
+    'loggers': {
+        'djangosaml2': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+
