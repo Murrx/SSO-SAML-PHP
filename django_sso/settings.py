@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 from os import path
@@ -19,6 +21,11 @@ import saml2
 BASEDIR = path.dirname(path.abspath(__file__))
 
 MAIN_URL = 'localhost:8000'
+try:
+    from local import *
+except ImportError:
+    # No local settings which is fine
+    pass
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -190,4 +197,3 @@ SAML_CONFIG = {
   'valid_for': 24,  # how long is our metadata valid
   }
 
-from local import  *
