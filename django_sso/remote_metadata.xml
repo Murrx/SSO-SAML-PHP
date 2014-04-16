@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://sp.zimmermanzimmerman.com/simplesaml/saml2/idp/metadata.php">
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIID6TCCAtGgAwIBAgIJAJX7SVVWG4jEMA0GCSqGSIb3DQEBBQUAMIGKMQswCQYDVQQGEwJOTDELMAkGA1UECAwCTkgxEjAQBgNVBAcMCUFtc3RlcmRhbTELMAkGA1UECgwCWloxCzAJBgNVBAsMAklUMRUwEwYDVQQDDAxTaWVtIFZhZXNzZW4xKTAnBgkqhkiG9w0BCQEWGnNpZW1AemltbWVybWFuemltbWVybWFuLm5sMB4XDTE0MDQxMDE1NDAxMVoXDTI0MDQwOTE1NDAxMVowgYoxCzAJBgNVBAYTAk5MMQswCQYDVQQIDAJOSDESMBAGA1UEBwwJQW1zdGVyZGFtMQswCQYDVQQKDAJaWjELMAkGA1UECwwCSVQxFTATBgNVBAMMDFNpZW0gVmFlc3NlbjEpMCcGCSqGSIb3DQEJARYac2llbUB6aW1tZXJtYW56aW1tZXJtYW4ubmwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9AzgLEjcoxZdOS8xkD39Z+hbYSfgb4qsUAxIUpm4PRlzI29yCjbqrXL29lAR8tGVNhElFeysD+K0GmQyMnfxkfCKfsw90uW5cAyLtZVrGA62mHbxMkO3bfVGrR+zpYpifzypeOQeo/esQ5PXKwwo/5XBy8wTsZbZqutKyv0HlisZo2uLOwHFKFkVdjEIObhpgE3s0JkBuE6Gad/sTOieAuq0g1jDripJs0W75emrDb3sz+ySQPmJ0vr5SV9+VETwStURNIlFuyZ464vvTIRZ9KIutSka/dI4kBheZUj6HyzGv9Gt0NyXuIB82BGKhAmSAJ7jCITLvpcmzSGtkl6wPAgMBAAGjUDBOMB0GA1UdDgQWBBSS7XiJHzTfOban5boGnWt5hcMUxTAfBgNVHSMEGDAWgBSS7XiJHzTfOban5boGnWt5hcMUxTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAFxVgeGXUMwsZawKEwnudDaBKCNGDKdT++SLF8p9q6sMNvif/mwZLJVWAX94sU+6oBRXA8oJxMypMt4iU7SGSWmqxMk0ba0l1xKs2Lr6o6Tk4vIYSNhk/kkYutOkXi82LjgQZNY1jsUg5kskjmBEz7nBGgY3Pa1KGXPh+g4ZWgIkfFRD6nAuDoHzIl1djItC5q5stz6tf5wQWRWP0Qb5hEjavAcE25lQuYwYPeEanTHoJ1lVgU9bmMDQsVqIp9S9EpUxkE+Ia6mawrx+QNPp6qrH7c4BVUjeC7CE4OhjMIci0uSlTXdv6eIInFRc3M63QUmsyh3CiDS9ZujYL6TbJ0</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIID6TCCAtGgAwIBAgIJAJX7SVVWG4jEMA0GCSqGSIb3DQEBBQUAMIGKMQswCQYDVQQGEwJOTDELMAkGA1UECAwCTkgxEjAQBgNVBAcMCUFtc3RlcmRhbTELMAkGA1UECgwCWloxCzAJBgNVBAsMAklUMRUwEwYDVQQDDAxTaWVtIFZhZXNzZW4xKTAnBgkqhkiG9w0BCQEWGnNpZW1AemltbWVybWFuemltbWVybWFuLm5sMB4XDTE0MDQxMDE1NDAxMVoXDTI0MDQwOTE1NDAxMVowgYoxCzAJBgNVBAYTAk5MMQswCQYDVQQIDAJOSDESMBAGA1UEBwwJQW1zdGVyZGFtMQswCQYDVQQKDAJaWjELMAkGA1UECwwCSVQxFTATBgNVBAMMDFNpZW0gVmFlc3NlbjEpMCcGCSqGSIb3DQEJARYac2llbUB6aW1tZXJtYW56aW1tZXJtYW4ubmwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9AzgLEjcoxZdOS8xkD39Z+hbYSfgb4qsUAxIUpm4PRlzI29yCjbqrXL29lAR8tGVNhElFeysD+K0GmQyMnfxkfCKfsw90uW5cAyLtZVrGA62mHbxMkO3bfVGrR+zpYpifzypeOQeo/esQ5PXKwwo/5XBy8wTsZbZqutKyv0HlisZo2uLOwHFKFkVdjEIObhpgE3s0JkBuE6Gad/sTOieAuq0g1jDripJs0W75emrDb3sz+ySQPmJ0vr5SV9+VETwStURNIlFuyZ464vvTIRZ9KIutSka/dI4kBheZUj6HyzGv9Gt0NyXuIB82BGKhAmSAJ7jCITLvpcmzSGtkl6wPAgMBAAGjUDBOMB0GA1UdDgQWBBSS7XiJHzTfOban5boGnWt5hcMUxTAfBgNVHSMEGDAWgBSS7XiJHzTfOban5boGnWt5hcMUxTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAFxVgeGXUMwsZawKEwnudDaBKCNGDKdT++SLF8p9q6sMNvif/mwZLJVWAX94sU+6oBRXA8oJxMypMt4iU7SGSWmqxMk0ba0l1xKs2Lr6o6Tk4vIYSNhk/kkYutOkXi82LjgQZNY1jsUg5kskjmBEz7nBGgY3Pa1KGXPh+g4ZWgIkfFRD6nAuDoHzIl1djItC5q5stz6tf5wQWRWP0Qb5hEjavAcE25lQuYwYPeEanTHoJ1lVgU9bmMDQsVqIp9S9EpUxkE+Ia6mawrx+QNPp6qrH7c4BVUjeC7CE4OhjMIci0uSlTXdv6eIInFRc3M63QUmsyh3CiDS9ZujYL6TbJ0</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sp.zimmermanzimmerman.com/simplesaml/saml2/idp/SingleLogoutService.php"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sp.zimmermanzimmerman.com/simplesaml/saml2/idp/SSOService.php"/>
+  </md:IDPSSODescriptor>
+</md:EntityDescriptor>

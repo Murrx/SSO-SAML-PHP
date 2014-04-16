@@ -10,7 +10,12 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+from os import path
+import saml2
+BASEDIR = path.dirname(path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,16 +31,29 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/saml2/login/'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
+AUTHENTICATION_BACKENDS = (
+      'django.contrib.auth.backends.ModelBackend',
+      'djangosaml2.backends.Saml2Backend',
+  )
 
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangosaml2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,3 +98,92 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SAML_CONFIG = {
+  # full path to the xmlsec1 binary programm
+  'xmlsec_binary': '/usr/local/share/doc/xmlsec1',
+
+  # your entity id, usually your subdomain plus the url to the metadata view
+  'entityid': 'http://localhost:8000/saml2/metadata/',
+
+  # directory with attribute mapping
+  #'attribute_map_dir': path.join(BASEDIR, 'attribute-maps'),
+
+  # this block states what services we provide
+  'service': {
+      # we are just a lonely SP
+      'sp' : {
+          'name': 'Federated Django sample SP',
+          'endpoints': {
+              # url and binding to the assetion consumer service view
+              # do not change the binding or service name
+              'assertion_consumer_service': [
+                  ('http://localhost:8000/saml2/acs/',
+                   saml2.BINDING_HTTP_POST),
+                  ],
+              # url and binding to the single logout service view
+              # do not change the binding or service name
+              'single_logout_service': [
+                  ('http://localhost:8000/saml2/ls/',
+                   saml2.BINDING_HTTP_REDIRECT),
+                  ],
+              },
+
+           # attributes that this project need to identify a user
+          'required_attributes': ['uid'],
+
+           # attributes that may be useful to have but not required
+          'optional_attributes': ['eduPersonAffiliation'],
+
+          # in this section the list of IdPs we talk to are defined
+          'idp': {
+              # we do not need a WAYF service since there is
+              # only an IdP defined here. This IdP should be
+              # present in our metadata
+
+              # the keys of this dictionary are entity ids
+              'http://sp.zimmermanzimmerman.com/simplesaml/saml2/idp/metadata.php': {
+                  'single_sign_on_service': {
+                      saml2.BINDING_HTTP_REDIRECT: 'http://sp.zimmermanzimmerman.com/simplesaml/saml2/idp/SSOService.php',
+                      },
+                  'single_logout_service': {
+                      saml2.BINDING_HTTP_REDIRECT: 'http://sp.zimmermanzimmerman.com/simplesaml/saml2/idp/SingleLogoutService.php',
+                      },
+                  },
+              },
+          },
+      },
+
+  # where the remote metadata is stored
+  'metadata': {
+      'local': [path.join(BASEDIR, 'remote_metadata.xml')],
+      },
+
+  # set to 1 to output debugging information
+  'debug': 1,
+
+  # certificate
+  'key_file': path.join(BASEDIR, 'privatekey.pem'),  # private part should be key?
+  'cert_file': path.join(BASEDIR, 'publickey.cer'),  # public part
+
+  # own metadata settings
+  'contact_person': [
+      {'given_name': 'Siem',
+       'sur_name': 'Vaessen',
+       'company': 'Zimmerman&Zimmerman',
+       'email_address': 'siem@zimmermanzimmerman.nl',
+       'contact_type': 'CTO'},
+      {'given_name': 'Berjan',
+       'sur_name': 'Bruens',
+       'company': 'Zimmerman&Zimmerman',
+       'email_address': 'berjan@zimmermanzimmerman.nl',
+       'contact_type': 'technical'},
+      ],
+  # you can set multilanguage information here
+  'organization': {
+      'name': [('Zimmerman&Zimmerman', 'nl'), ('Zimmerman&Zimmerman', 'en')],
+      'display_name': [('Zimmerman&Zimmerman', 'nl'), ('Zimmerman&Zimmerman', 'en')],
+      'url': [('http://www.zimmermanzimmerman.nl', 'nl'), ('http://zimmermanzimmerman.nl', 'en')],
+      },
+  'valid_for': 24,  # how long is our metadata valid
+  }
