@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -17,6 +18,7 @@ from os import path
 import saml2
 BASEDIR = path.dirname(path.abspath(__file__))
 
+MAIN_URL = 'localhost:8000'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -104,7 +106,7 @@ SAML_CONFIG = {
   'xmlsec_binary': '/usr/local/share/doc/xmlsec1',
 
   # your entity id, usually your subdomain plus the url to the metadata view
-  'entityid': 'http://localhost:8000/saml2/metadata/',
+  'entityid': 'http://%s/saml2/metadata/' % MAIN_URL,
 
   # directory with attribute mapping
   #'attribute_map_dir': path.join(BASEDIR, 'attribute-maps'),
@@ -118,13 +120,13 @@ SAML_CONFIG = {
               # url and binding to the assetion consumer service view
               # do not change the binding or service name
               'assertion_consumer_service': [
-                  ('http://localhost:8000/saml2/acs/',
+                  ('http://%s/saml2/acs/' % MAIN_URL,
                    saml2.BINDING_HTTP_POST),
                   ],
               # url and binding to the single logout service view
               # do not change the binding or service name
               'single_logout_service': [
-                  ('http://localhost:8000/saml2/ls/',
+                  ('http://%s/saml2/ls/' % MAIN_URL,
                    saml2.BINDING_HTTP_REDIRECT),
                   ],
               },
@@ -187,3 +189,5 @@ SAML_CONFIG = {
       },
   'valid_for': 24,  # how long is our metadata valid
   }
+
+from local import  *
