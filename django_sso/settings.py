@@ -20,6 +20,7 @@ from os import path
 import saml2
 BASEDIR = path.dirname(path.abspath(__file__))
 
+PATH_XMLSEC = '/usr/local/share/doc/xmlsec1'
 MAIN_URL = 'localhost:8000'
 try:
     from local import *
@@ -110,7 +111,7 @@ STATIC_URL = '/static/'
 
 SAML_CONFIG = {
   # full path to the xmlsec1 binary programm
-  'xmlsec_binary': '/usr/local/share/doc/xmlsec1',
+  'xmlsec_binary': PATH_XMLSEC,
 
   # your entity id, usually your subdomain plus the url to the metadata view
   'entityid': 'http://%s/saml2/metadata/' % MAIN_URL,
