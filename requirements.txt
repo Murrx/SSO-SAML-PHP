@@ -1,3 +1,7 @@
 django==1.6.2
 django-suit
 djangosaml2
+djangorestframework
+markdown
+django-filter
+

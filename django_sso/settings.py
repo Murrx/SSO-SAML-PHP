@@ -53,6 +53,13 @@ AUTHENTICATION_BACKENDS = (
       'djangosaml2.backends.Saml2Backend',
   )
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+         'rest_framework.authentication.SessionAuthentication',
+    )
+}
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -64,6 +71,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangosaml2',
+    'rest_framework',
+    'rest_framework.authtoken',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -197,6 +206,16 @@ SAML_CONFIG = {
       },
   'valid_for': 24,  # how long is our metadata valid
   }
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.SHA1PasswordHasher',
+    'django.contrib.auth.hashers.CryptPasswordHasher',
+)
+
 
 LOGGING = {
     'version': 1,
