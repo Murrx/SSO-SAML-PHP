@@ -241,3 +241,8 @@ LOGGING = {
     }
 }
 
+try:
+    from local import *
+except ImportError:
+    # No local settings which is fine
+    pass
