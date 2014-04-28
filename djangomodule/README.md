@@ -19,7 +19,7 @@ cp ../core/default-enable .
 ```
 Now this module is active
 
-You have to make the directories lib/Auth/Source and add the [MyAuth.php](https://github.com/siemvaessen/SSO-SAML-PHP/tree/master/djangomodule/lib/Auth/Source)n file. This is the custom written Django authentication provider.
+You have to make the directories lib/Auth/Source and add the [MyAuth.php](https://github.com/siemvaessen/SSO-SAML-PHP/tree/master/djangomodule/lib/Auth/Source) file. This is the custom written Django authentication provider.
 
 To enable the module into the SSP identity provider:
 
