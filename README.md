@@ -92,15 +92,15 @@ $metadata['http://sp.example.org/simplesaml/module.php/saml/sp/metadata.php/defa
 See the written [documentation here](https://github.com/siemvaessen/SSO-SAML-PHP/tree/master/djangomodule)
 
 ##Configuration Wordpress
-*search for plugin and install: Saml 2.0 single sign-on
-*activate the plugin
-*go to the settings of this plugin
-*go to the tab Identity provider, and add http://your-url/simplesaml/saml2/idp/metadata.php to the URL to idP metadata. The plugin will find the right urls and save these settings
-*go to the Service provider tab, choose for NameID Policy: urn:oasis:names:tc:SAML:2.0:nameid-format:transient
-*Fill in the following attributes in order: uid, givenName, sn, mail, eduPersonAffiliation
-*For the groups fill in Administrators group name: manager, Editors group name: employee. According to your group configuration.
-*Check the box for allowing Unlisted users
-*Go to the main settings page of this plugin and activate SAML authentication
+* search for plugin and install: Saml 2.0 single sign-on
+* activate the plugin
+* go to the settings of this plugin
+* go to the tab Identity provider, and add http://your-url/simplesaml/saml2/idp/metadata.php to the URL to idP metadata. The plugin will find the right urls and save these settings
+* go to the Service provider tab, choose for NameID Policy: urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+* fill in the following attributes in order: uid, givenName, sn, mail, eduPersonAffiliation
+* for the groups fill in Administrators group name: manager, Editors group name: employee. According to your group configuration.
+* check the box for allowing Unlisted users
+* go to the main settings page of this plugin and activate SAML authentication
 
 ####Enabling SLO
 Wordpress with the SAML 2.0 plugin does not function out of the box with SLO (Single Logout).
