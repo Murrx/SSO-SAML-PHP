@@ -34,8 +34,8 @@ Add this to the $config array
 ```php
 'django-module-instance' => array(
                 'djangomodule:MyAuth',
-                'auth_key' => '1f0c2eee1246ee464fabd6d26bf52124154841bf',
-                'django_url' => 'http://sp.zimmermanzimmerman.com/check-user/',
+                'auth_key' => '1f0c2eee1246ee464ddd6d26bf52124154841bf',
+                'django_url' => 'http://django-url.com/check-user/',
         ),
 ```
 Adjust the auth_key to your auth_key (ask siem@zimmermanzimmerman.com for a token) add the django api URL.
