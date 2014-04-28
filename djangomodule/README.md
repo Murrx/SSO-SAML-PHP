@@ -1,11 +1,11 @@
-#Documentation configuration Django authentication provider
+#Django auth provider SimpleSamlPhp
 
-This module is a php extension for SimpleSamlPhp. With this module you will be able to use the Django authentication mechanism as backend for a SSP Identiy Provider.
+This module is a php extension for SimpleSamlPhp = SSP. With this module you will be able to use the Django authentication mechanism as backend for a SSP Identiy Provider.
 
 Documentation source for creating extensions see [the documentation](https://simplesamlphp.org/docs/1.11/simplesamlphp-customauth)
 
 ##Instructions
-1. Go to your root of the SimpleSamlPhp = SSP installation
+1. Go to your root of the SSP installation
 
 ```shell
 cd modules
