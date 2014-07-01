@@ -5,6 +5,7 @@ from rest_framework.authentication import TokenAuthentication, SessionAuthentica
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from accounts.models import CustomUser
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -23,7 +24,7 @@ def check_username_password(request, username, password):
     if request.method == 'GET':
 
         if authenticate(username=username, password=password):
-            user = User.objects.get(username=username)
+            user = CustomUser.objects.get(username=username)
             serializer = UserSerializer(user, many=False)
             return Response(serializer.data)
         else:
