@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 @api_view(['GET'])
 #@authentication_classes((TokenAuthentication,))
-@permission_classes((IsAuthenticated,))
+#@permission_classes((IsAuthenticated,))
 def check_username_password(request, username, password):
     """
     List all snippets, or create a new snippet.
