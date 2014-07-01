@@ -11,7 +11,7 @@ from accounts.models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     groups = serializers.RelatedField(many=True)
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('id','username', 'first_name', 'last_name', 'email', 'groups')
 
 @api_view(['GET'])
