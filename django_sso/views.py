@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id','username', 'first_name', 'last_name', 'email', 'groups')
 
 @api_view(['GET'])
-@authentication_classes((TokenAuthentication,))
+#@authentication_classes((TokenAuthentication,))
 @permission_classes((IsAuthenticated,))
 def check_username_password(request, username, password):
     """
