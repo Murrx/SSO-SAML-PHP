@@ -28,6 +28,15 @@ except ImportError:
     # No local settings which is fine
     pass
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+REST_PROFILE_MODULE = AUTH_USER_MODEL
+
+ACCOUNT_ACTIVATION_DAYS = 3
+
+#registration api, this could be used for i.e. Wordpress Theme
+REST_REGISTRATION_BACKEND = 'registration.backends.default.views.RegistrationView'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -47,7 +56,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
-
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
+    )
 AUTHENTICATION_BACKENDS = (
       'django.contrib.auth.backends.ModelBackend',
       'djangosaml2.backends.Saml2Backend',
@@ -74,6 +87,9 @@ INSTALLED_APPS = (
     'django_sso',
     'rest_framework',
     'rest_framework.authtoken',
+    'registration',
+    'rest_auth',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,6 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
 
 SAML_CONFIG = {
   # full path to the xmlsec1 binary programm

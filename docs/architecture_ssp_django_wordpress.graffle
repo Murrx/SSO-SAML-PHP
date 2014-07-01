@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {559.27555274963379, 782.8897705078125}}</string>
+		<string>{{0, 0}, {559.27559471130371, 782.86138916015625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -46,7 +46,7 @@
 	<key>Creator</key>
 	<string>Bruens IT</string>
 	<key>DisplayScale</key>
-	<string>1 0/72 in = 1 0/72 in</string>
+	<string>1 0/72 in = 1.0000 in</string>
 	<key>GraphDocumentVersion</key>
 	<integer>8</integer>
 	<key>GraphicsList</key>
@@ -1666,7 +1666,7 @@ Django auth module}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-04-28 10:22:22 +0000</string>
+	<string>2014-06-18 15:07:26 +0000</string>
 	<key>Modifier</key>
 	<string>Bruens IT</string>
 	<key>NotesVisible</key>
@@ -1697,12 +1697,22 @@ Django auth module}</string>
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{595.27555274963379, 841.8897705078125}</string>
+			<string>{595.27559471130371, 841.86138916015625}</string>
 		</array>
 		<key>NSPrintReverseOrientation</key>
 		<array>
 			<string>int</string>
 			<string>0</string>
+		</array>
+		<key>NSPrinter</key>
+		<array>
+			<string>coded</string>
+			<string>BAtzdHJlYW10eXBlZIHoA4QBQISEhAlOU1ByaW50ZXIAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxhEZXNramV0IDMwNzAgQjYxMSBzZXJpZXOGhg==</string>
+		</array>
+		<key>NSPrinterName</key>
+		<array>
+			<string>string</string>
+			<string>Deskjet 3070 B611 series</string>
 		</array>
 		<key>NSRightMargin</key>
 		<array>
@@ -1747,7 +1757,7 @@ Django auth module}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{403, 94}, {850, 922}}</string>
+		<string>{{4, -0}, {1676, 1028}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -1761,7 +1771,7 @@ Django auth module}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-78, 0}, {715, 783}}</string>
+		<string>{{-491, -53}, {1541, 889}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

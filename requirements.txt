@@ -1,7 +1,9 @@
 django==1.6.2
 django-suit
 djangosaml2
-djangorestframework
+djangorestframework>=2.3.13
+django-registration>=1.0
+django-rest-auth
 markdown
 django-filter
 
