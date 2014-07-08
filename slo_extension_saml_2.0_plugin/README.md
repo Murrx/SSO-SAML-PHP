@@ -37,3 +37,11 @@ function is_user_logged_in() {
 ```
 
 This code ensures that a logged in user also needs a SimpleSamlPhp session.
+
+For Apache configuration: check-user
+
+Add this for having the correct authentication headers:
+RewriteEngine on
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+

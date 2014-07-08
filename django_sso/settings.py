@@ -56,15 +56,15 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader',
-    )
 AUTHENTICATION_BACKENDS = (
       'django.contrib.auth.backends.ModelBackend',
       'djangosaml2.backends.Saml2Backend',
   )
+TEMPLATE_LOADERS = (
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.eggs.Loader',
+    )
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -77,6 +77,7 @@ REST_FRAMEWORK = {
 
 INSTALLED_APPS = (
     'suit',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,7 +90,6 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'registration',
     'rest_auth',
-    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
