@@ -1,6 +1,6 @@
 {% load i18n %}
 {% trans "Activate account at" %} {{ site.name }}:
 
-http://{{ site.domain }}/activation/?activation_key={{ activation_key }}
+http://urban.bruensit.com//activation/?activation_key={{ activation_key }}
 
 {% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
