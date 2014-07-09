@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 #    url(r'^saml2/', include('djangosaml2.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^check-user/(?P<username>[0-9A-Za-z]+)/(?P<password>[0-9A-Za-z]+)$', check_username_password),
+    url(r'^check-user/(?P<username>[0-9A-Za-z_@#$-]+)/(?P<password>[0-9A-Za-z_@#$-]+)$', check_username_password),
     (r'^rest-auth/', include('rest_auth.urls')),
     #url(r'^accounts/', include()),
 )
