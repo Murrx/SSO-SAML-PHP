@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.views.generic import TemplateView
 from rest_framework import serializers
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -30,3 +31,7 @@ def check_username_password(request, username, password):
         else:
             #User params are not correct, so we return a unauthorized response
             return Response(status=401)
+
+
+class Home(TemplateView):
+    template_name = 'home.html'
