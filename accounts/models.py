@@ -13,4 +13,3 @@ def add_user_to_dashboard_group(sender, instance, created, **kwargs):
     if created:
         instance.groups.add(dashboard_group)
 post_save.connect(add_user_to_dashboard_group, sender=CustomUser)
-

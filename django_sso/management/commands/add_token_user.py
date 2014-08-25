@@ -1,5 +1,5 @@
 from optparse import make_option
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand, CommandError
 from rest_framework.authtoken.models import Token
 
@@ -22,6 +22,7 @@ class Command(BaseCommand):
             user = options['username']
             print 'We will create a token for user %s' % user
             print 'Finding user %s' % user
+            User = get_user_model()
             try:
                 user_obj = User.objects.get(username=user)
                 token, _ = Token.objects.get_or_create(user=user_obj)
@@ -33,5 +34,4 @@ class Command(BaseCommand):
 
         else:
             raise CommandError('You need to supply a --username=example_user argument')
-
 

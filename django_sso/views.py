@@ -1,10 +1,8 @@
 from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 from rest_framework import serializers
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from accounts.models import CustomUser
 
