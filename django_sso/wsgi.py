@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 
 import sys
 import os
-sys.path.append('/var/www/django.zz.com/')
+sys.path.append('/var/www/www.zz-login.net/')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_sso.settings")
 
 from django.core.wsgi import get_wsgi_application
