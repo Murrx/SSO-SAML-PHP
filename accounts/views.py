@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.contrib.sites.models import Site, RequestSite
 from registration import signals
 
@@ -14,11 +15,16 @@ class RegistrationView(BaseRegistrationView):
             site = Site.objects.get_current()
         else:
             site = RequestSite(request)
-        new_user = RegistrationProfile.objects.create_inactive_user(username, email,
-                                                                    password, site, send_email=False)
-        signals.user_registered.send(sender=self.__class__,
-                                     user=new_user,
-                                     request=request)
+
+        new_user = User.objects.create_user(username, email, password)
+        new_user.is_active = False
+        new_user.save()
+        
+        #new_user = RegistrationProfile.objects.create_inactive_user(username, email,
+        #                                                            password, site, send_email=False)
+        #signals.user_registered.send(sender=self.__class__,
+        #                             user=new_user,
+        #                             request=request)
 
         # create user profile
         user_profile_model = _resolve_model(
