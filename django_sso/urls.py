@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django_sso import settings
-from django_sso.views import check_username_password, Home
+from django_sso.views import check_username_password, Home, check_token
 
 
 admin.autodiscover()
@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 #    url(r'^saml2/', include('djangosaml2.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^check-user/(?P<username>[0-9A-Za-z_@#$-.]+)/(?P<password>[0-9A-Za-z_@#$-]+)$', check_username_password),
+    url(r'^check-token/', check_token),
     (r'^rest-auth/', include('rest_auth.urls')),
     url(r'^$', Home.as_view() ),
     #url(r'^accounts/', include()),
